@@ -22,7 +22,7 @@ publishing the resulting worker to Cloudflare's worker infrastructure.
 [Learn more about `cargo generate` here.](https://github.com/ashleygwilliams/cargo-generate)
 
 ```
-cargo generate --git https://github.com/ashleygwilliams/rustwasm-worker-template.git --name wasm-worker
+cargo generate --git https://github.com/cloudflare/rustwasm-worker-template.git --name wasm-worker
 cd wasm-worker
 ```
 
