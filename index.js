@@ -7,8 +7,7 @@ addEventListener('fetch', event => {
  * @param {Request} request
  */
 async function handleRequest(request) {
-    const { greet } = wasm_bindgen;
-    await wasm_bindgen(wasm)
+    const { greet } = await import("./pkg")
     const greeting = greet()
     return new Response(greeting, {status: 200})
 }

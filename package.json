@@ -1,0 +1,6 @@
+{
+  "name": "{{project-name}}",
+  "devDependencies": {
+    "@wasm-tool/wasm-pack-plugin": "^0.4.2"
+  }
+}
