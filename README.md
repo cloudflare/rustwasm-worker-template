@@ -26,6 +26,12 @@ wrangler generate wasm-worker  https://github.com/cloudflare/rustwasm-worker-tem
 cd wasm-worker
 ```
 
+### Build and publish with `wrangler`
+
+```
+wrangler publish
+```
+
 ### 🛠️ Build with `wasm-pack build`
 
 ```
