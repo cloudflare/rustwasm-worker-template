@@ -3,6 +3,9 @@ name = "{{project-name}}"
 version = "0.1.0"
 authors = ["{{authors}}"]
 edition = "2018"
+description = "Cloudflare worker template using WebAssembly with Rust"
+repository = "https://github.com/cloudflare/rustwasm-worker-template"
+license = "MIT OR APACHE-2.0"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

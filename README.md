@@ -1,10 +1,13 @@
 # 👷‍♀️🦀🕸️ `rustwasm-worker-template`
 
-A template for kick starting a Cloudflare worker project using
-[`wasm-pack`](https://github.com/rustwasm/wasm-pack).
-
 This template is designed for compiling Rust libraries into WebAssembly and
 publishing the resulting worker to Cloudflare's worker infrastructure.
+
+
+## 🛠️ Required tools
+
+- [Rust](https://www.rust-lang.org/tools/install)
+- [Wrangler CLI](https://developers.cloudflare.com/workers/cli-wrangler/install-update)
 
 ## 🔋 Batteries Included
 
@@ -17,23 +20,57 @@ publishing the resulting worker to Cloudflare's worker infrastructure.
 
 ## 🚴 Usage
 
-### 🐑 Use `wrangler generate` to Clone this Template
+### 🐑 Use `wrangler generate` to Clone this Template.
 
-[Learn more about `wrangler generate` here.](https://github.com/cloudflare/wrangler)
-
-```
-wrangler generate wasm-worker  https://github.com/cloudflare/rustwasm-worker-template.git
-cd wasm-worker
-```
-
-### 🛠️ Build with `wasm-pack build`
+[Learn more about `wrangler generate` here.](https://github.com/cloudflare/wrangler#-generate)
 
 ```
-wasm-pack build
+$ wrangler generate wasm-worker --type rust
+🔧   Creating project called `wasm-worker`...
+✨   Done! New project created <path>/wasm-worker
+🕵️  You will need to update the following fields in the created wrangler.toml file before continuing:
+🕵️  You can find your account_id in the right sidebar of your account's Workers page, and zone_id in the right sidebar of a zone's overview tab at https://dash.cloudflare.com
+- account_id
 ```
 
-### 🔬 Test in Headless Browsers with `wasm-pack test`
+[Login](https://developers.cloudflare.com/workers/cli-wrangler/commands#login) to your Cloudflare account, and edit [wrangler.toml](wrangler.toml) to add your `account_id`. The `zone_id` and `route` are only needed if you want to deploy on your own domain.
+
+### 👂 Use `wrangler dev` to build and run locally, while watching for changes.
+
+[Learn more about `wrangler dev` here.](https://github.com/cloudflare/wrangler#-dev)
 
 ```
-wasm-pack test --headless --firefox
+$ wrangler dev
+🌀  Compiling your project to WebAssembly...
+[INFO]: 🎯  Checking for the Wasm target...
+[INFO]: 🌀  Compiling to Wasm...
+   ...
+   ...
+   Compiling wasm-worker v0.1.0
+    Finished release [optimized] target(s) in 11.48s
+[INFO]: ⬇️  Installing wasm-bindgen...
+[INFO]: Optimizing wasm binaries with `wasm-opt`...
+[INFO]: ✨   Done in 11.96s
+[INFO]: 📦   Your wasm pkg is ready to publish at <path>/wasm-worker/pkg.
+💁  watching "./"
+👂  Listening on http://127.0.0.1:8787
 ```
+
+### ☁️ 🆙 Use `wrangler publish` to push your worker to Cloudflare.
+
+[Learn more about `wrangler publish` here.](https://github.com/cloudflare/wrangler#%EF%B8%8F--publish)
+
+```
+$ wrangler publish
+🌀  Compiling your project to WebAssembly...
+[INFO]: 🎯  Checking for the Wasm target...
+[INFO]: 🌀  Compiling to Wasm...
+    Finished release [optimized] target(s) in 0.03s
+[INFO]: ⬇️  Installing wasm-bindgen...
+[INFO]: Optimizing wasm binaries with `wasm-opt`...
+[INFO]: ✨   Done in 0.45s
+[INFO]: 📦   Your wasm pkg is ready to publish at <path>/wasm-worker/pkg.
+✨  Build succeeded
+✨  Successfully published your script to
+ https://rust.<subdomain>.workers.dev
+ ```
