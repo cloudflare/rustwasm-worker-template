@@ -26,6 +26,7 @@ publishing the resulting worker to Cloudflare's worker infrastructure.
 
 ```
 $ wrangler generate wasm-worker --type rust
+
 🔧   Creating project called `wasm-worker`...
 ✨   Done! New project created <path>/wasm-worker
 🕵️  You will need to update the following fields in the created wrangler.toml file before continuing:
@@ -41,6 +42,7 @@ $ wrangler generate wasm-worker --type rust
 
 ```
 $ wrangler dev
+
 🌀  Compiling your project to WebAssembly...
 [INFO]: 🎯  Checking for the Wasm target...
 [INFO]: 🌀  Compiling to Wasm...
@@ -62,6 +64,7 @@ $ wrangler dev
 
 ```
 $ wrangler publish
+
 🌀  Compiling your project to WebAssembly...
 [INFO]: 🎯  Checking for the Wasm target...
 [INFO]: 🌀  Compiling to Wasm...
