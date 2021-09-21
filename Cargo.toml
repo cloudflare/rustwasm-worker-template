@@ -26,6 +26,10 @@ console_error_panic_hook = { version = "0.1.1", optional = true }
 # allocator, however.
 wee_alloc = { version = "0.4.2", optional = true }
 
+# We need this import with the "js" feature enabled for reasons explained
+# here: https://docs.rs/getrandom/#webassembly-support
+getrandom = { version = "0.2.3", features = ["js"] }
+
 [profile.release]
 # Tell `rustc` to optimize for small code size.
 opt-level = "s"
