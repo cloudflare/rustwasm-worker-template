@@ -1,10 +1,11 @@
 use serde_json::json;
 use worker::*;
+use wasmedge_quickjs::
 
 mod utils;
 
 fn log_request(req: &Request) {
-    console_log!(
+    console_log!( 
         "{} - [{}], located at: {:?}, within: {}",
         Date::now().to_string(),
         req.path(),
@@ -12,6 +13,28 @@ fn log_request(req: &Request) {
         req.cf().region().unwrap_or("unknown region".into())
     );
 }
+
+let mut ctx = Context::new();
+
+let code = r#"
+import('async_demo.js').then((demo)=>{
+    return demo.wait_simple_val(1)
+})
+"#;
+
+let p = ctx.eval_global_str(code);
+println!("before poll:{:?}", p);
+if let JsValue::Promise(ref p) = p {
+    let v = p.get_result();
+    println!("v = {:?}", v);
+}
+ctx.promise_loop_poll();
+println!("after poll:{:?}", p);
+if let JsValue::Promise(ref p) = p {
+    let v = p.get_result();
+    println!("v = {:?}", v);
+}
+
 
 #[event(fetch)]
 pub async fn main(req: Request, env: Env) -> Result<Response> {
@@ -24,7 +47,7 @@ pub async fn main(req: Request, env: Env) -> Result<Response> {
     // catch-alls to match on specific patterns. Alternatively, use `Router::with_data(D)` to
     // provide arbitrary data that will be accessible in each route via the `ctx.data()` method.
     let router = Router::new();
-
+   
     // Add as many routes as your Worker needs! Each route will get a `Request` for handling HTTP
     // functionality and a `RouteContext` which you can use to  and get route parameters and
     // Environment bindings like KV Stores, Durable Objects, Secrets, and Variables.
