@@ -1,5 +1,4 @@
 name = "{{project-name}}"
-workers_dev = true
 compatibility_date = "2022-05-15"
 main = "build/worker/shim.mjs"
 
