@@ -11,11 +11,19 @@ This template starts you off with a `src/lib.rs` file, acting as an entrypoint f
 your Worker. Feel free to add more code in this file, or create Rust modules anywhere else for this
 project to use. 
 
+### Prerequisites
+
+- Use rust-up for a smoother experience. If you're not using rust-up, re-install rust up from [rust up](https://rustup.rs/). If you installed rust using brew, uninstall it by running `brew uninstall rust`.
+- Alternatively, to keep your existing rust installation, follow:
+> For non-Rustup setups, the wasm32-unknown-unknown target needs to be installed manually. See https://rustwasm.github.io/wasm-pack/book/prerequisites/non-rustup-setups.html on how to do this
+
+Replace `{{project-name}}` in `wrangler.toml` and `Cargo.toml`. Also update `authors` in `Cargo.toml`.
+
 With `wrangler`, you can build, test, and deploy your Worker with the following commands: 
 
 ```bash
 # compiles your project to WebAssembly and will warn of any issues
-wrangler build 
+wrangler publish --dry-run
 
 # run your Worker in an ideal development workflow (with a local server, file watcher & more)
 wrangler dev
