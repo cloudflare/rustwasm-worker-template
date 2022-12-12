@@ -1,4 +1,4 @@
-name = "rustwasm-markdown-parser"
+name = "{{project-name}}"
 workers_dev = true
 main = "build/worker/shim.mjs"
 compatibility_date = "2022-12-12"

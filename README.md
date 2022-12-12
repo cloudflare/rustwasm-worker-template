@@ -15,6 +15,8 @@ project to use.
 - Alternatively, 
 > For non-Rustup setups, the wasm32-unknown-unknown target needs to be installed manually. See https://rustwasm.github.io/wasm-pack/book/prerequisites/non-rustup-setups.html on how to do this
 
+Replace `{{project-name}}` in `wrangler.toml` and `Cargo.toml`. Also update `authors` in `Cargo.toml`.
+
 With `wrangler`, you can build, test, and deploy your Worker with the following commands: 
 
 ```bash
