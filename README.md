@@ -1,9 +1,8 @@
 # Getting Started
 
-A template for kick starting a Cloudflare worker project using [`workers-rs`](https://github.com/cloudflare/workers-rs).
+This template is based on [rustwasm-worker-template from Cloudflare](https://github.com/cloudflare/rustwasm-worker-template/), but updated. It uses [`workers-rs`](https://crates.io/crates/worker) ([GitHub repo](https://github.com/cloudflare/workers-rs)).
 
-This template is designed for compiling Rust to WebAssembly and publishing the resulting worker to 
-Cloudflare's [edge infrastructure](https://www.cloudflare.com/network/).
+This template is designed for compiling Rust to WebAssembly and publishing the resulting worker to Cloudflare's [edge infrastructure](https://www.cloudflare.com/network/).
 
 ## Usage 
 
@@ -11,11 +10,16 @@ This template starts you off with a `src/lib.rs` file, acting as an entrypoint f
 your Worker. Feel free to add more code in this file, or create Rust modules anywhere else for this
 project to use. 
 
+### Prerequisites
+- Re-install rust up using [rust up](https://rustup.rs/). For example, if you installed rust using brew, uninstall it by running `brew uninstall rust`
+- Alternatively, 
+> For non-Rustup setups, the wasm32-unknown-unknown target needs to be installed manually. See https://rustwasm.github.io/wasm-pack/book/prerequisites/non-rustup-setups.html on how to do this
+
 With `wrangler`, you can build, test, and deploy your Worker with the following commands: 
 
 ```bash
 # compiles your project to WebAssembly and will warn of any issues
-wrangler build 
+wrangler publish --dry-run --outdir=dist
 
 # run your Worker in an ideal development workflow (with a local server, file watcher & more)
 wrangler dev
@@ -23,8 +27,6 @@ wrangler dev
 # deploy your Worker globally to the Cloudflare network (update your wrangler.toml file for configuration)
 wrangler publish
 ```
-
-Read the latest `worker` crate documentation here: https://docs.rs/worker
 
 ## WebAssembly
 
