@@ -1,1 +1,0 @@
-This folder contains the built output assets for the worker "rustwasm-markdown-parser" generated at 2022-12-12T16:36:15.598Z.
