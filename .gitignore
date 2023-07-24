@@ -2,3 +2,5 @@
 **/*.rs.bk
 wasm-pack.log
 build/
+.idea
+.vs

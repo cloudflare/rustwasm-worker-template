@@ -1,4 +1,4 @@
-name = "{{project-name}}"
+name = "rustwasm-worker-template"
 type = "javascript"
 workers_dev = true
 compatibility_date = "2022-01-20"
