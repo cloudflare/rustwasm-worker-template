@@ -5,3 +5,4 @@ build/
 .idea
 .vs
 node_modules
+.DS_Store
