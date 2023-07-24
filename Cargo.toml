@@ -1,7 +1,7 @@
 [package]
 name = "rustwasm-worker-template"
 version = "0.1.0"
-authors = ["cloudflare"]
+authors = ["Cloudflare"]
 edition = "2018"
 
 [lib]
