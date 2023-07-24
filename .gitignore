@@ -2,3 +2,6 @@
 **/*.rs.bk
 wasm-pack.log
 build/
+node_modules
+.idea
+.vs
