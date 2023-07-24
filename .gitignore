@@ -4,3 +4,4 @@ wasm-pack.log
 build/
 .idea
 .vs
+node_modules
